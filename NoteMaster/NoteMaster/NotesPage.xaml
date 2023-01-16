@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NoteMaster.NotesPage"
+             Title="Note Master">
+    <ContentPage.Content>
+        <StackLayout Margin="5,5,5,5">
+        
+            <!-- Search Bar -->
+            <SearchBar x:Name="searchBar" Placeholder="Search for Title.." TextChanged="searchBar_TextChanged" BackgroundColor="LightBlue"/>
+            
+            <ScrollView>
+                <!-- Notes List -->
+                <ListView x:Name="notesList"
+                          IsPullToRefreshEnabled="True" Refreshing="notesList_Refreshing" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!-- Text Cell -->
+                            <TextCell Text="{Binding Title}" Detail="{Binding Body}" TextColor="Black" DetailColor="Blue">
+                                
+                                <!-- Menu Options -->
+                                <TextCell.ContextActions>
+                                    <MenuItem Text="Edit" IsDestructive="True" Clicked="Edit_Clicked" CommandParameter="{Binding .}"/>
+                                    <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_Clicked" CommandParameter="{Binding .}"/>
+                                </TextCell.ContextActions>
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            
+            <!-- Add Note Button -->
+            <Button Text="Add Note" BackgroundColor="LightSeaGreen" CornerRadius="100" Margin="10,10,10,10" Clicked="Add_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
