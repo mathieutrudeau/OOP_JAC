@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PhoneBook.Views.ContactsPage"
+             Title="My Contacts">
+    
+    <!-- Toolbar --> 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="baseline_add_white_18dp.png" Clicked="Add_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <!-- Page Content -->
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <!-- Contact List -->
+            <ListView x:Name="contactsList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <!-- Contact Display -->
+                        <TextCell Text="{Binding FullName}" Detail="{Binding PhoneNumber}" Tapped="Contact_Tapped" CommandParameter="{Binding .}">
+                            
+                            <!-- Contact Actions -->
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Delete" IsDestructive="True" Clicked="Delete_Clicked" CommandParameter="{Binding .}"/>
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
