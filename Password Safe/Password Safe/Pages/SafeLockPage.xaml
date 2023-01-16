@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Password_Safe.Pages.SafeLockPage"
+             Title="Safe Combination">
+    
+    <ContentPage.Content>
+    
+        <!--Page Stack Layout-->
+        <StackLayout VerticalOptions="CenterAndExpand">
+        
+            <!--Page Header-->
+            <Label x:Name="pageHeader" Text="Enter the Safe Combination" FontSize="30" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+            
+            <!--Page First Combination Option Grid-->
+            <Grid x:Name="fourNumberCombinationGrid" IsVisible="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="number1" Grid.Row="0" Grid.Column="0" Style="{StaticResource fourNumberCombinationStyle}" TextChanged="ChangeFocus" />
+                <Entry x:Name="number2" Grid.Row="0" Grid.Column="1" Style="{StaticResource fourNumberCombinationStyle}" TextChanged="ChangeFocus" />
+                <Entry x:Name="number3" Grid.Row="0" Grid.Column="2" Style="{StaticResource fourNumberCombinationStyle}" TextChanged="ChangeFocus" />
+                <Entry x:Name="number4" Grid.Row="0" Grid.Column="3" Style="{StaticResource fourNumberCombinationStyle}" TextChanged="ChangeFocus" />
+            </Grid>
+
+            <!--Page Second Combination Option Grid-->
+            <Grid x:Name="passwordGrid" IsVisible="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="password" Grid.Row="0" Grid.Column="0" Style="{StaticResource passwordStyle}" />
+            </Grid>
+            
+            <!--Switch to choose a Combination Option-->
+            <Label x:Name="optionLabel" Text="Switch Combination Option" HorizontalOptions="Center" IsVisible="False"/>
+            <Switch x:Name="optionSwitch" HorizontalOptions="Center" Toggled="optionSwitch_Toggled"/>
+
+            <!--Button to save or enter a Combination-->
+            <Button x:Name="saveButton" Text="Enter Combination" Clicked="saveButton_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

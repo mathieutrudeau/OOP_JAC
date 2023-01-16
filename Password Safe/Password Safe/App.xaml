@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Password_Safe.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <!--Properties for the Four number combination Entries-->
+            <Style TargetType="Entry" x:Key="fourNumberCombinationStyle">
+                <Setter Property="Keyboard" Value="Numeric"/>
+                <Setter Property="MaxLength" Value="1"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="IsPassword" Value="True"/>
+            </Style>
+
+            <!--Properties for the Password Entry-->
+            <Style TargetType="Entry" x:Key="passwordStyle">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="10,0"/>
+                <Setter Property="Keyboard" Value="Default"/>
+                <Setter Property="IsPassword" Value="True"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
